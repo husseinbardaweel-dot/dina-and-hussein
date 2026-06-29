@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To My Beautiful Dina ❤️</title>
+    <title>Dina & Hussein ❤️</title>
     <style>
         * {
             margin: 0;
@@ -12,63 +12,44 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            position: relative;
             overflow: hidden;
         }
 
+        .heart {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.3;
+            font-size: 2rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+
         .container {
-            text-align: center;
             background: rgba(255, 255, 255, 0.95);
-            padding: 50px;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 50px;
             max-width: 600px;
-            position: relative;
-            z-index: 10;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 192, 203, 0.5);
+            animation: slideIn 0.8s ease-out;
         }
 
-        h1 {
-            color: #764ba2;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in;
-        }
-
-        .heart-icon {
-            font-size: 3em;
-            display: inline-block;
-            animation: pulse 1.5s ease-in-out infinite;
-            margin: 0 10px;
-        }
-
-        p {
-            color: #333;
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin: 20px 0;
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        .message {
-            color: #764ba2;
-            font-style: italic;
-            font-size: 1.1em;
-            margin-top: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border-radius: 10px;
-            animation: fadeIn 2s ease-in;
-        }
-
-        @keyframes fadeIn {
+        @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -76,117 +57,203 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
+        .hearts-top {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: pulse 1s ease-in-out infinite;
         }
 
-        .floating-hearts {
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .date {
+            color: #ff69b4;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .content {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 30px 0;
+            text-align: justify;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .hearts-decoration {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+
+        .music-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(118, 75, 162, 0.2);
+        }
+
+        .music-label {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .footer-hearts {
+            font-size: 2rem;
+            margin-top: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Floating hearts background */
+        .bg-hearts {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
             pointer-events: none;
-            overflow: hidden;
+            z-index: 1;
         }
 
-        .heart {
+        .heart-float {
             position: absolute;
-            font-size: 2em;
-            animation: float 6s infinite ease-in;
-            opacity: 0.7;
+            color: rgba(255, 105, 180, 0.3);
+            font-size: 1.5rem;
+            animation: heartFloat 8s infinite;
         }
 
-        @keyframes float {
+        @keyframes heartFloat {
             0% {
-                transform: translateY(100vh) translateX(0);
+                transform: translateY(100vh) translateX(0) rotate(0deg);
                 opacity: 0;
             }
             10% {
-                opacity: 0.7;
+                opacity: 1;
             }
             90% {
-                opacity: 0.7;
+                opacity: 1;
             }
             100% {
-                transform: translateY(-100vh) translateX(100px);
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        .music-player {
-            margin-top: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
+        .container {
+            position: relative;
+            z-index: 10;
         }
 
-        audio {
-            width: 100%;
-            margin-top: 10px;
-        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                margin: 20px;
+            }
 
-        .music-label {
-            color: white;
-            font-size: 0.95em;
-            margin-bottom: 10px;
-            font-weight: bold;
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="floating-hearts" id="floatingHearts"></div>
+    <div class="bg-hearts" id="heartContainer"></div>
 
     <div class="container">
-        <h1>To My Beautiful <span style="color: #e74c3c;">Dina</span></h1>
-        <div class="heart-icon">❤️</div>
+        <div class="hearts-top">❤️ 💕 ❤️</div>
 
-        <p>Every moment with you is a treasure I hold dear. Your smile brightens my darkest days, and your laugh is the sweetest melody to my ears.</p>
+        <h1>Dina & Hussein</h1>
 
-        <p>In you, I found not just love, but my soulmate, my best friend, and my forever home. You are the reason my heart beats, the reason I dream, and the reason I believe in forever.</p>
+        <div class="subtitle">A Love Story</div>
 
-        <div class="message">
-            <p>"I love you more than words could ever say. Thank you for being the most beautiful part of my life. You are my today and all my tomorrows."</p>
+        <div class="date">📅 June 15, 2026</div>
+
+        <div class="hearts-decoration">❤️ 💕 ❤️</div>
+
+        <div class="content">
+            <p>Dear Dina,</p>
+
+            <p>Words can hardly express what I feel when I think of you. You are the light that brightens my darkest days and the reason my heart beats with such joy. Every moment spent with you is a precious memory that I treasure forever.</p>
+
+            <p>Your smile, your laughter, your presence - everything about you makes me believe in love. You are not just my love; you are my best friend, my inspiration, and my greatest blessing.</p>
+
+            <p>I promise to stand by you, to support your dreams, and to love you with all my heart. You deserve the world, and I will spend my lifetime trying to give it to you.</p>
+
+            <p>Thank you for being my reason to smile, for being my safe place, and for choosing to share your life with me.</p>
+
+            <p>Forever yours,<br><strong>Hussein</strong></p>
         </div>
 
-        <div class="music-player">
-            <div class="music-label">🎵 Our Song - Dua Lipa 🎵</div>
-            <audio controls autoplay loop>
-                <source src="https://www.youtube.com/watch?v=kJQP7kiw9Fk" type="audio/mpeg">
+        <div class="hearts-decoration">❤️ 💕 ❤️</div>
+
+        <div class="music-section">
+            <div class="music-label">🎵 Lana Del Rey</div>
+            <audio controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+            <p style="color: #999; font-size: 0.85rem; margin-top: 10px;">Playing ambient music for you 🎶</p>
         </div>
+
+        <div class="footer-hearts">❤️ 💕 ❤️</div>
     </div>
 
     <script>
-        // Create floating hearts
-        const floatingHeartsContainer = document.getElementById('floatingHearts');
-        const hearts = ['❤️', '💕', '💗', '💖', '💝'];
+        // Create floating hearts in background
+        function createFloatingHearts() {
+            const container = document.getElementById('heartContainer');
+            const hearts = ['❤️', '💕', '💖', '💗'];
 
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (Math.random() * 3 + 6) + 's';
-            heart.style.animationDelay = Math.random() * 2 + 's';
-            floatingHeartsContainer.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 8000);
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = (Math.random() * 3 + 8) + 's';
+                container.appendChild(heart);
+            }
         }
 
-        // Create hearts continuously
-        setInterval(createHeart, 300);
+        createFloatingHearts();
 
-        // Create initial hearts
-        for (let i = 0; i < 5; i++) {
-            createHeart();
-        }
+        // Console message
+        console.log('%c❤️ This page was created with love by Hussein for Dina ❤️', 
+                    'color: #ff69b4; font-size: 16px; font-weight: bold;');
     </script>
 </body>
 </html>
