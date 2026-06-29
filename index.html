@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dina & Hussein ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,38 +13,155 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Lora', serif;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
         }
 
-        .heart {
+        /* Animated Background with Memories */
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .memory-card {
             position: absolute;
-            animation: float 3s ease-in-out infinite;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: float 8s ease-in-out infinite;
             opacity: 0.3;
-            font-size: 2rem;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-20px) translateX(10px); }
+            0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+            50% { transform: translateY(-30px) rotateZ(5deg); }
         }
 
+        /* Password Screen */
+        .password-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .password-screen.hidden {
+            display: none;
+        }
+
+        .password-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .password-container h2 {
+            font-family: 'Playfair Display', serif;
+            color: #764ba2;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .password-container p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-family: 'Lora', serif;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 15px rgba(118, 75, 162, 0.3);
+        }
+
+        .password-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Lora', serif;
+        }
+
+        .password-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.4);
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Main Content */
         .container {
+            position: relative;
+            z-index: 10;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 50px;
-            max-width: 600px;
+            padding: 60px;
+            max-width: 700px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 192, 203, 0.5);
             animation: slideIn 0.8s ease-out;
+            margin: 50px auto;
         }
 
         @keyframes slideIn {
@@ -69,68 +187,76 @@
         }
 
         h1 {
+            font-family: 'Playfair Display', serif;
             color: #764ba2;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 900;
         }
 
         .subtitle {
+            font-family: 'Playfair Display', serif;
             color: #667eea;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .date {
             color: #ff69b4;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .content {
             color: #333;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin: 30px 0;
+            font-size: 1.2rem;
+            line-height: 2;
+            margin: 35px 0;
             text-align: justify;
+            font-family: 'Lora', serif;
         }
 
         .content p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
         .hearts-decoration {
-            font-size: 1.5rem;
-            margin: 20px 0;
-            letter-spacing: 10px;
+            font-size: 1.8rem;
+            margin: 30px 0;
+            letter-spacing: 15px;
         }
 
         .music-section {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid rgba(118, 75, 162, 0.2);
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid rgba(118, 75, 162, 0.2);
         }
 
         .music-label {
+            font-family: 'Playfair Display', serif;
             color: #667eea;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         audio {
             width: 100%;
-            margin-top: 10px;
+            margin-top: 15px;
             border-radius: 10px;
+            height: 40px;
         }
 
         .footer-hearts {
-            font-size: 2rem;
-            margin-top: 30px;
+            font-size: 2.5rem;
+            margin-top: 40px;
             animation: float 3s ease-in-out infinite;
         }
 
@@ -142,12 +268,12 @@
             top: 0;
             left: 0;
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
         }
 
         .heart-float {
             position: absolute;
-            color: rgba(255, 105, 180, 0.3);
+            color: rgba(255, 105, 180, 0.2);
             font-size: 1.5rem;
             animation: heartFloat 8s infinite;
         }
@@ -158,20 +284,15 @@
                 opacity: 0;
             }
             10% {
-                opacity: 1;
+                opacity: 0.7;
             }
             90% {
-                opacity: 1;
+                opacity: 0.7;
             }
             100% {
                 transform: translateY(-100vh) translateX(100px) rotate(360deg);
                 opacity: 0;
             }
-        }
-
-        .container {
-            position: relative;
-            z-index: 10;
         }
 
         @media (max-width: 768px) {
@@ -181,16 +302,48 @@
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
             }
 
             .content {
                 font-size: 1rem;
             }
+
+            .memory-card {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Password Screen -->
+    <div class="password-screen" id="passwordScreen">
+        <div class="password-container">
+            <h2>🔐 Enter Secret</h2>
+            <p>This page is protected with love</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
+            <button class="password-btn" onclick="checkPassword()">Unlock</button>
+            <div class="error-msg" id="errorMsg">❌ Wrong password, try again!</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="background">
+        <!-- Memory Cards -->
+        <div class="memory-card" style="top: 10%; left: 5%; animation-delay: 0s;">✈️</div>
+        <div class="memory-card" style="top: 20%; right: 8%; animation-delay: 1s;">🎭</div>
+        <div class="memory-card" style="top: 50%; left: 10%; animation-delay: 2s;">🌙</div>
+        <div class="memory-card" style="top: 60%; right: 12%; animation-delay: 1.5s;">🎬</div>
+        <div class="memory-card" style="bottom: 15%; left: 15%; animation-delay: 2.5s;">🎪</div>
+        <div class="memory-card" style="bottom: 25%; right: 10%; animation-delay: 0.5s;">🌟</div>
+    </div>
+
     <div class="bg-hearts" id="heartContainer"></div>
 
     <div class="container">
@@ -198,47 +351,71 @@
 
         <h1>Dina & Hussein</h1>
 
-        <div class="subtitle">A Love Story</div>
+        <div class="subtitle">Our Love Story</div>
 
         <div class="date">📅 June 15, 2026</div>
 
         <div class="hearts-decoration">❤️ 💕 ❤️</div>
 
         <div class="content">
-            <p>Dear Dina,</p>
+            <p>My Dearest Dina,</p>
 
-            <p>Words can hardly express what I feel when I think of you. You are the light that brightens my darkest days and the reason my heart beats with such joy. Every moment spent with you is a precious memory that I treasure forever.</p>
+            <p>Words can hardly express what I feel when I think of you. You are the light that brightens my darkest days and the reason my heart beats with such boundless joy. Every precious moment spent with you becomes a memory I will cherish forever.</p>
 
-            <p>Your smile, your laughter, your presence - everything about you makes me believe in love. You are not just my love; you are my best friend, my inspiration, and my greatest blessing.</p>
+            <p>Your radiant smile, your infectious laughter, your gentle presence—everything about you makes me believe in the power of true love. You are not just my beloved; you are my closest confidant, my greatest inspiration, and my most profound blessing.</p>
 
-            <p>I promise to stand by you, to support your dreams, and to love you with all my heart. You deserve the world, and I will spend my lifetime trying to give it to you.</p>
+            <p>I solemnly promise to stand steadfastly by your side, to support your dreams with all my strength, and to love you with every fiber of my being. You deserve all the beauty and joy in this world, and I shall dedicate my lifetime to creating those moments with you.</p>
 
-            <p>Thank you for being my reason to smile, for being my safe place, and for choosing to share your life with me.</p>
+            <p>Thank you for being my reason to smile each day, for being my safe harbor in every storm, and for choosing to share your beautiful life with mine.</p>
 
-            <p>Forever yours,<br><strong>Hussein</strong></p>
+            <p>Forever and always yours,<br><strong style="font-size: 1.3rem;">Hussein</strong></p>
         </div>
 
         <div class="hearts-decoration">❤️ 💕 ❤️</div>
 
         <div class="music-section">
-            <div class="music-label">🎵 Lana Del Rey</div>
+            <div class="music-label">🎵 Lana Del Rey 🎵</div>
             <audio controls>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <p style="color: #999; font-size: 0.85rem; margin-top: 10px;">Playing ambient music for you 🎶</p>
+            <p style="color: #999; font-size: 0.9rem; margin-top: 12px; font-style: italic;">Our song plays just for us 🎶</p>
         </div>
 
         <div class="footer-hearts">❤️ 💕 ❤️</div>
     </div>
 
     <script>
+        // Password Protection
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const correctPassword = 'huseinanddina';
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (input === correctPassword) {
+                document.getElementById('passwordScreen').classList.add('hidden');
+                createFloatingHearts();
+                errorMsg.style.display = 'none';
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
         // Create floating hearts in background
         function createFloatingHearts() {
             const container = document.getElementById('heartContainer');
-            const hearts = ['❤️', '💕', '💖', '💗'];
+            container.innerHTML = ''; // Clear existing
+            const hearts = ['❤️', '💕', '💖', '💗', '💝'];
 
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 25; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart-float';
                 heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
@@ -249,11 +426,10 @@
             }
         }
 
-        createFloatingHearts();
-
         // Console message
         console.log('%c❤️ This page was created with love by Hussein for Dina ❤️', 
                     'color: #ff69b4; font-size: 16px; font-weight: bold;');
+        console.log('%cPassword: huseinanddina', 'color: #667eea; font-size: 14px;');
     </script>
 </body>
 </html>
