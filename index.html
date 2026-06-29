@@ -14,14 +14,12 @@
 
         html, body {
             width: 100%;
-            height: 100%;
         }
 
         body {
             font-family: 'Cairo', 'Amiri', serif;
             min-height: 100vh;
             position: relative;
-            overflow-x: hidden;
             direction: rtl;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
@@ -152,22 +150,21 @@
         .main-content {
             position: relative;
             z-index: 10;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            width: 100%;
+            padding: 30px 20px;
+            display: none;
         }
 
-        .main-content.hidden {
-            display: none !important;
+        .main-content.visible {
+            display: block;
         }
 
         .container {
             background: rgba(255, 255, 255, 0.97);
             border-radius: 25px;
-            padding: 70px 50px;
+            padding: 50px 30px;
             max-width: 900px;
+            margin: 0 auto;
             box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
             text-align: center;
             backdrop-filter: blur(10px);
@@ -187,8 +184,8 @@
         }
 
         .top-hearts {
-            font-size: 4rem;
-            margin-bottom: 25px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             animation: heartBeat 1.2s infinite;
             letter-spacing: 10px;
         }
@@ -202,7 +199,7 @@
         h1 {
             font-family: 'Cairo', serif;
             color: #764ba2;
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 15px;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
             font-weight: 900;
@@ -213,22 +210,22 @@
             font-family: 'Cairo', serif;
             color: #667eea;
             font-size: 2rem;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: 700;
         }
 
         .date-stamp {
             color: #ff69b4;
-            font-size: 1.4rem;
-            margin-bottom: 45px;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
             font-weight: 600;
             letter-spacing: 2px;
         }
 
         .divider {
-            font-size: 1.8rem;
-            margin: 35px 0;
-            letter-spacing: 20px;
+            font-size: 1.5rem;
+            margin: 30px 0;
+            letter-spacing: 15px;
             color: #ff69b4;
         }
 
@@ -236,15 +233,15 @@
         .images-gallery {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 50px 0;
+            gap: 30px;
+            margin: 40px 0;
             flex-wrap: wrap;
         }
 
         .image-box {
             position: relative;
-            width: 220px;
-            height: 300px;
+            width: 200px;
+            height: 280px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -274,76 +271,77 @@
             width: 100%;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
             color: white;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         /* Content Text */
         .love-message {
             color: #333;
-            font-size: 1.3rem;
-            line-height: 2.2;
-            margin: 45px 0;
+            font-size: 1.2rem;
+            line-height: 2;
+            margin: 35px 0;
             text-align: justify;
             font-family: 'Cairo', 'Amiri', serif;
         }
 
         .love-message p {
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
         .signature {
-            font-size: 1.5rem;
-            margin-top: 35px;
+            font-size: 1.4rem;
+            margin-top: 30px;
             font-weight: 700;
             color: #764ba2;
         }
 
         /* Music Player */
         .music-player {
-            margin-top: 50px;
-            padding-top: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
             border-top: 4px solid rgba(118, 75, 162, 0.2);
         }
 
         .music-title {
             font-family: 'Cairo', serif;
             color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         audio {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 15px;
             border-radius: 15px;
-            height: 50px;
+            height: 45px;
             cursor: pointer;
         }
 
         .music-note {
             color: #999;
-            font-size: 1rem;
-            margin-top: 15px;
+            font-size: 0.95rem;
+            margin-top: 12px;
             font-style: italic;
         }
 
         .bottom-hearts {
-            font-size: 3rem;
-            margin-top: 45px;
+            font-size: 2.5rem;
+            margin-top: 35px;
+            margin-bottom: 20px;
             animation: float 4s ease-in-out infinite;
-            letter-spacing: 15px;
+            letter-spacing: 12px;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
 
         /* Floating Hearts Background */
@@ -359,8 +357,8 @@
 
         .floating-heart {
             position: absolute;
-            color: rgba(255, 105, 180, 0.25);
-            font-size: 2rem;
+            color: rgba(255, 105, 180, 0.2);
+            font-size: 1.5rem;
             animation: heartRise 12s infinite ease-in;
         }
 
@@ -370,13 +368,13 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.8;
+                opacity: 0.7;
             }
             90% {
-                opacity: 0.8;
+                opacity: 0.7;
             }
             100% {
-                transform: translateY(-100vh) translateX(150px) rotate(360deg);
+                transform: translateY(-100vh) translateX(120px) rotate(360deg);
                 opacity: 0;
             }
         }
@@ -384,34 +382,38 @@
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 40px 25px;
-                margin: 20px;
+                padding: 30px 20px;
+                margin: 0;
             }
 
             h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
 
             .title-subtitle {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
 
             .love-message {
-                font-size: 1.1rem;
-                line-height: 1.9;
+                font-size: 1rem;
+                line-height: 1.8;
             }
 
             .images-gallery {
-                gap: 20px;
+                gap: 15px;
             }
 
             .image-box {
-                width: 180px;
-                height: 250px;
+                width: 160px;
+                height: 220px;
             }
 
             .top-hearts {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+
+            .divider {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -439,7 +441,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content hidden" id="mainContent">
+    <div class="main-content" id="mainContent">
         <div class="container">
             <div class="top-hearts">❤️ 💕 ❤️</div>
 
@@ -455,11 +457,11 @@
             <div class="images-gallery">
                 <div class="image-box">
                     <img src="https://images.unsplash.com/photo-1578591069636-4bbf1619e656?w=400&h=500&fit=crop" alt="باتمان">
-                    <div class="image-title">🦇 باتمان 🦇</div>
+                    <div class="image-title">🦇 باتمان</div>
                 </div>
                 <div class="image-box">
                     <img src="https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a5?w=400&h=500&fit=crop" alt="كاتومان">
-                    <div class="image-title">🐱 كاتومان 🐱</div>
+                    <div class="image-title">🐱 كاتومان</div>
                 </div>
             </div>
 
@@ -469,7 +471,7 @@
             <div class="love-message">
                 <p>حبيبتي دينا الغالية،</p>
 
-                <p>كلمات اللغة جميعاً تجف على لساني عندما أحاول التعبير عما أشعر به تجاهك. أنتِ النور الذي يشع في أحلك لحظاتي، والسبب الوحيد وراء نبضات قلبي بفرح وشغف لا حدود له.</p>
+                <p>كلمات اللغة ��ميعاً تجف على لساني عندما أحاول التعبير عما أشعر به تجاهك. أنتِ النور الذي يشع في أحلك لحظاتي، والسبب الوحيد وراء نبضات قلبي بفرح وشغف لا حدود له.</p>
 
                 <p>كل ثانية أقضيها برفقتك تتحول إلى ذاكرة ذهبية أحتفظ بها في أعماق روحي إلى الأبد. ابتسامتك الرقيقة، ضحكتك الذي يذيب قلبي، حنانك الذي لا يوصف - كل شيء فيك يعلمني معنى الحب الحقيقي.</p>
 
@@ -477,7 +479,7 @@
 
                 <p>أعدك بأغلظ الأيمان أن أقف بجانبك في كل خطواتك، أدعم أحلامك بكل قوة روحي، وأحبك بكل نبضة في قلبي. تستحقين كل جمال هذا العالم، وسأكرس كل أيام عمري لخلق أجمل اللحظات معك.</p>
 
-                <p>شكراً لأنك سبب ابتسامتي كل صباح، ملجأي الآمن في كل عاصفة، وتضحين بخيارك الأغلى لتشاركي هذه الحياة.</p>
+                <p>شكراً لأنك سبب ابتسامتي كل صباح، ملجأي الآمن في كل عاصفة، وتضحين بخيارك الأغلى لتشاركي هذه الحياة الجميلة.</p>
 
                 <p class="signature">إلى الأبد وأبعد،<br>❤️ حسين ❤️</p>
             </div>
@@ -487,7 +489,7 @@
             <!-- Music Player -->
             <div class="music-player">
                 <div class="music-title">🎵 أغنيتنا 🎵</div>
-                <p style="color: #667eea; font-size: 1.1rem; margin-bottom: 10px;">Lana Del Rey</p>
+                <p style="color: #667eea; font-size: 1.05rem; margin-bottom: 10px;">Lana Del Rey</p>
                 <audio controls>
                     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                     متصفحك لا يدعم تشغيل الملفات الصوتية
@@ -508,7 +510,7 @@
 
             if (input === correctPassword) {
                 document.getElementById('passwordOverlay').classList.add('hidden');
-                document.getElementById('mainContent').classList.remove('hidden');
+                document.getElementById('mainContent').classList.add('visible');
                 createFloatingHearts();
                 errorMsg.style.display = 'none';
             } else {
@@ -530,7 +532,7 @@
             const container = document.getElementById('heartsContainer');
             const hearts = ['❤️', '💕', '💖', '💗', '💝'];
 
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 25; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'floating-heart';
                 heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
