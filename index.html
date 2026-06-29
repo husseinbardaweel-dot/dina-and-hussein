@@ -3,356 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دينا وحسين ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <title>دينا وحسين</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', 'Amiri', serif;
-            direction: rtl;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        /* Password Screen */
-        .password-screen {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .password-screen.hidden {
-            display: none;
-        }
-
-        .password-container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 60px 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            max-width: 400px;
-        }
-
-        .password-container h2 {
-            font-family: 'Cairo', serif;
-            color: #764ba2;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-weight: 900;
-        }
-
-        .password-container p {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #667eea;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-family: 'Cairo', serif;
-            text-align: center;
-            letter-spacing: 2px;
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 15px rgba(118, 75, 162, 0.3);
-        }
-
-        .password-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Cairo', serif;
-        }
-
-        .error-msg {
-            color: #e74c3c;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            display: none;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 30px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 50px 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            border: 2px solid rgba(255, 192, 203, 0.5);
-            margin-bottom: 30px;
-        }
-
-        .hearts-top {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            letter-spacing: 10px;
-        }
-
-        h1 {
-            font-family: 'Cairo', serif;
-            color: #764ba2;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            font-weight: 900;
-        }
-
-        .subtitle {
-            font-family: 'Cairo', serif;
-            color: #667eea;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .date {
-            color: #ff69b4;
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            font-weight: 600;
-        }
-
-        .divider {
-            font-size: 1.8rem;
-            margin: 30px 0;
-            letter-spacing: 15px;
-        }
-
-        /* Images */
-        .images-section {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .image-card {
-            position: relative;
-            width: 200px;
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .image-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-label {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Content */
-        .content {
-            color: #333;
-            font-size: 1.2rem;
-            line-height: 2;
-            margin: 35px 0;
-            text-align: justify;
-            font-family: 'Cairo', 'Amiri', serif;
-        }
-
-        .content p {
-            margin-bottom: 20px;
-        }
-
-        .signature {
-            font-size: 1.3rem;
-            margin-top: 35px;
-            font-weight: 700;
-            color: #764ba2;
-        }
-
-        /* Music */
-        .music-section {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 3px solid rgba(118, 75, 162, 0.2);
-        }
-
-        .music-label {
-            font-family: 'Cairo', serif;
-            color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        audio {
-            width: 100%;
-            margin-top: 15px;
-            border-radius: 10px;
-            height: 40px;
-        }
-
-        .footer-hearts {
-            font-size: 2.5rem;
-            margin-top: 40px;
-            letter-spacing: 15px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .subtitle {
-                font-size: 1.3rem;
-            }
-
-            .content {
-                font-size: 1rem;
-            }
-
-            .image-card {
-                width: 150px;
-                height: 200px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #667eea; direction: rtl; }
+        
+        .lock { position: fixed; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 999; background: #667eea; }
+        .lock.off { display: none; }
+        
+        .box { background: white; padding: 40px; border-radius: 10px; text-align: center; width: 90%; max-width: 400px; }
+        .box h2 { color: #764ba2; margin-bottom: 20px; }
+        .box input { width: 100%; padding: 10px; margin: 10px 0; border: 2px solid #667eea; border-radius: 5px; text-align: center; font-size: 14px; }
+        .box button { width: 100%; padding: 10px; margin: 10px 0; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .box .err { color: red; font-size: 12px; display: none; }
+        
+        .page { padding: 20px; max-width: 900px; margin: 0 auto; display: none; }
+        .page.on { display: block; }
+        
+        .card { background: white; padding: 30px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #764ba2; font-size: 2.5rem; margin: 20px 0; }
+        .sub { color: #667eea; font-size: 1.3rem; margin: 10px 0; }
+        .date { color: #ff69b4; margin: 15px 0; }
+        .text { text-align: justify; line-height: 1.8; margin: 20px 0; font-size: 1.1rem; }
+        
+        .imgs { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 30px 0; }
+        .img { width: 180px; height: 240px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        audio { width: 100%; margin: 20px 0; }
+        .heart { font-size: 2rem; text-align: center; margin: 20px 0; letter-spacing: 10px; }
     </style>
 </head>
 <body>
-    <!-- Password Screen -->
-    <div class="password-screen" id="passwordScreen">
-        <div class="password-container">
-            <h2>🔐 أدخل الرمز السري</h2>
-            <p>هذه الصفحة محمية بالحب 💕</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="أدخل كلمة المرور">
-            <button class="password-btn" onclick="checkPassword()">فتح</button>
-            <div class="error-msg" id="errorMsg">❌ كلمة المرور خاطئة!</div>
-        </div>
+
+<div class="lock" id="lock">
+    <div class="box">
+        <h2>🔐</h2>
+        <input type="password" id="pass" placeholder="كلمة المرور">
+        <button onclick="open_page()">فتح</button>
+        <p class="err" id="err">خطأ!</p>
+    </div>
+</div>
+
+<div class="page" id="page">
+    <div class="card">
+        <div class="heart">❤️ 💕 ❤️</div>
+        <h1>دينا وحسين</h1>
+        <div class="sub">قصة حبنا</div>
+        <div class="date">📅 15 يونيو 2026</div>
+        <div class="heart">❤️ 💕 ❤️</div>
     </div>
 
-    <!-- Main Content -->
-    <div class="main-content" style="display: none;" id="mainContent">
-        <div class="container">
-            <div class="hearts-top">❤️ 💕 ❤️</div>
-
-            <h1>دينا وحسين</h1>
-
-            <div class="subtitle">قصة حبنا</div>
-
-            <div class="date">📅 15 يونيو 2026</div>
-
-            <div class="divider">❤️ 💕 ❤️</div>
-
-            <!-- Images -->
-            <div class="images-section">
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1578591069636-4bbf1619e656?w=300&h=400&fit=crop" alt="باتمان">
-                    <div class="image-label">🦇 باتمان</div>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a5?w=300&h=400&fit=crop" alt="كاتومان">
-                    <div class="image-label">🐱 كاتومان</div>
-                </div>
+    <div class="card">
+        <div class="imgs">
+            <div class="img">
+                <img src="https://images.unsplash.com/photo-1578591069636-4bbf1619e656?w=300&h=400&fit=crop">
             </div>
-
-            <div class="divider">❤️ 💕 ❤️</div>
-
-            <!-- Content -->
-            <div class="content">
-                <p>حبيبتي دينا الغالية،</p>
-
-                <p>لا تستطيع الكلمات أن تعبر عما أشعر به عندما أفكر فيك. أنتِ النور الذي ينير أحلك أيامي والسبب وراء نبضات قلبي بفرح لا محدود.</p>
-
-                <p>كل لحظة أقضيها معك تصبح ذاكرة أحتفظ بها إلى الأبد. ابتسامتك المشرقة، ضحكتك العذب، وجودك الرقيق - كل شيء فيك يجعلني أؤمن بقوة الحب الحقيقي.</p>
-
-                <p>أنتِ ليست فقط حبي، بل أنتِ أفضل صديقة، أعظم إلهام، وأكثر نعمة في حياتي.</p>
-
-                <p>أعِدك أن أقف بجانبك دائماً، أدعم أحلامك بكل قوتي، وأحبك بكل جزء من قلبي. تستحقين العالم كله، وسأكرس حياتي كاملة لخلق أجمل اللحظات معك.</p>
-
-                <p>شكراً لأنك سبب ابتسامتي، ملجأي الآمن، واختيارك لتشاركي هذه الحياة الجميلة.</p>
-
-                <p class="signature">إلى الأبد وأكثر،<br>حسين ❤️</p>
+            <div class="img">
+                <img src="https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a5?w=300&h=400&fit=crop">
             </div>
-
-            <div class="divider">❤️ 💕 ❤️</div>
-
-            <!-- Music -->
-            <div class="music-section">
-                <div class="music-label">🎵 لانا ديل ري 🎵</div>
-                <audio controls>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                    متصفحك لا يدعم تشغيل الصوت
-                </audio>
-                <p style="color: #999; font-size: 0.9rem; margin-top: 12px; font-style: italic;">أغنيتنا تعزف فقط لأجلنا 🎶</p>
-            </div>
-
-            <div class="footer-hearts">❤️ 💕 ❤️</div>
         </div>
+        <div class="heart">❤️ 💕 ❤️</div>
     </div>
 
-    <script>
-        function checkPassword() {
-            const input = document.getElementById('passwordInput').value;
-            if (input === 'huseinanddina') {
-                document.getElementById('passwordScreen').classList.add('hidden');
-                document.getElementById('mainContent').style.display = 'block';
-            } else {
-                document.getElementById('errorMsg').style.display = 'block';
-                document.getElementById('passwordInput').value = '';
-            }
-        }
+    <div class="card">
+        <div class="text">
+            <p>حبيبتي دينا الغالية،</p><br>
+            <p>لا تستطيع الكلمات أن تعبر عما أشعر به عندما أفكر فيك. أنتِ النور الذي ينير أحلك أيامي والسبب وراء نبضات قلبي بفرح لا محدود.</p><br>
+            <p>كل لحظة أقضيها معك تصبح ذاكرة أحتفظ بها إلى الأبد. ابتسامتك المشرقة، ضحكتك العذب، وجودك الرقيق - كل شيء فيك يجعلني أؤمن بقوة الحب الحقيقي.</p><br>
+            <p>أنتِ ليست فقط حبي، بل أنتِ أفضل صديقة، أعظم إلهام، وأكثر نعمة في حياتي.</p><br>
+            <p>أعِدك أن أقف بجانبك دائماً، أدعم أحلامك بكل قوتي، وأحبك بكل جزء من قلبي. تستحقين العالم كله، وسأكرس حياتي كاملة لخلق أجمل اللحظات معك.</p><br>
+            <p>شكراً لأنك سبب ابتسامتي، ملجأي الآمن، واختيارك لتشاركي هذه الحياة الجميلة.</p><br>
+            <p><strong>إلى الأبد وأكثر،<br>حسين ❤️</strong></p>
+        </div>
+        <div class="heart">❤️ 💕 ❤️</div>
+    </div>
 
-        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
+    <div class="card">
+        <h3 style="color: #667eea; margin-bottom: 15px;">🎵 أغنيتنا 🎵</h3>
+        <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+        <p style="color: #999; text-align: center; margin-top: 10px; font-style: italic;">أغنيتنا تعزف فقط لأجلنا 🎶</p>
+        <div class="heart">❤️ 💕 ❤️</div>
+    </div>
+</div>
 
-        console.log('%c❤️ هذه الصفحة أنشئت بحب من حسين إلى دينا ❤️', 'color: #ff69b4; font-size: 16px; font-weight: bold;');
-    </script>
+<script>
+function open_page() {
+    if (document.getElementById('pass').value === 'huseinanddina') {
+        document.getElementById('lock').classList.add('off');
+        document.getElementById('page').classList.add('on');
+    } else {
+        document.getElementById('err').style.display = 'block';
+        document.getElementById('pass').value = '';
+    }
+}
+
+document.getElementById('pass').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') open_page();
+});
+</script>
+
 </body>
 </html>
