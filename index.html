@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dina & Hussein ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <title>دينا وحسين ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,10 +13,11 @@
         }
 
         body {
-            font-family: 'Lora', serif;
+            font-family: 'Cairo', 'Amiri', serif;
             min-height: 100vh;
             position: relative;
             overflow: hidden;
+            direction: rtl;
         }
 
         /* Animated Background with Memories */
@@ -92,10 +93,11 @@
         }
 
         .password-container h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cairo', serif;
             color: #764ba2;
             font-size: 2rem;
             margin-bottom: 15px;
+            font-weight: 900;
         }
 
         .password-container p {
@@ -111,7 +113,7 @@
             border-radius: 10px;
             font-size: 1.1rem;
             margin-bottom: 20px;
-            font-family: 'Lora', serif;
+            font-family: 'Cairo', serif;
             text-align: center;
             letter-spacing: 2px;
         }
@@ -133,7 +135,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            font-family: 'Lora', serif;
+            font-family: 'Cairo', serif;
         }
 
         .password-btn:hover {
@@ -155,7 +157,7 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 60px;
-            max-width: 700px;
+            max-width: 800px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
             backdrop-filter: blur(10px);
@@ -187,7 +189,7 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cairo', serif;
             color: #764ba2;
             font-size: 3.5rem;
             margin-bottom: 10px;
@@ -196,7 +198,7 @@
         }
 
         .subtitle {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cairo', serif;
             color: #667eea;
             font-size: 1.8rem;
             margin-bottom: 20px;
@@ -211,13 +213,54 @@
             letter-spacing: 1px;
         }
 
+        /* Images Section */
+        .images-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .image-card {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .image-card:hover {
+            transform: scale(1.05);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
         .content {
             color: #333;
             font-size: 1.2rem;
             line-height: 2;
             margin: 35px 0;
             text-align: justify;
-            font-family: 'Lora', serif;
+            font-family: 'Cairo', 'Amiri', serif;
         }
 
         .content p {
@@ -238,7 +281,7 @@
         }
 
         .music-label {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cairo', serif;
             color: #667eea;
             font-size: 1.3rem;
             margin-bottom: 15px;
@@ -318,6 +361,15 @@
                 height: 100px;
                 font-size: 2rem;
             }
+
+            .images-section {
+                gap: 15px;
+            }
+
+            .image-card {
+                width: 150px;
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -325,11 +377,11 @@
     <!-- Password Screen -->
     <div class="password-screen" id="passwordScreen">
         <div class="password-container">
-            <h2>🔐 Enter Secret</h2>
-            <p>This page is protected with love</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
-            <button class="password-btn" onclick="checkPassword()">Unlock</button>
-            <div class="error-msg" id="errorMsg">❌ Wrong password, try again!</div>
+            <h2>🔐 أدخل الرمز السري</h2>
+            <p>هذه الصفحة محمية بالحب 💕</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="أدخل كلمة المرور">
+            <button class="password-btn" onclick="checkPassword()">فتح</button>
+            <div class="error-msg" id="errorMsg">❌ كلمة المرور خاطئة، حاول مجدداً!</div>
         </div>
     </div>
 
@@ -349,37 +401,51 @@
     <div class="container">
         <div class="hearts-top">❤️ 💕 ❤️</div>
 
-        <h1>Dina & Hussein</h1>
+        <h1>دينا وحسين</h1>
 
-        <div class="subtitle">Our Love Story</div>
+        <div class="subtitle">قصة حبنا</div>
 
-        <div class="date">📅 June 15, 2026</div>
+        <div class="date">📅 15 يونيو 2026</div>
+
+        <div class="hearts-decoration">❤️ 💕 ❤️</div>
+
+        <!-- Images Section -->
+        <div class="images-section">
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1578591069636-4bbf1619e656?w=300&h=400&fit=crop" alt="باتمان">
+                <div class="image-label">🦇 باتمان</div>
+            </div>
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a5?w=300&h=400&fit=crop" alt="كاتومان">
+                <div class="image-label">🐱 كاتومان</div>
+            </div>
+        </div>
 
         <div class="hearts-decoration">❤️ 💕 ❤️</div>
 
         <div class="content">
-            <p>My Dearest Dina,</p>
+            <p>حبيبتي دينا الغالية،</p>
 
-            <p>Words can hardly express what I feel when I think of you. You are the light that brightens my darkest days and the reason my heart beats with such boundless joy. Every precious moment spent with you becomes a memory I will cherish forever.</p>
+            <p>لا تستطيع الكلمات أن تعبر عما أشعر به عندما أفكر فيك. أنتِ النور الذي ينير أحلك أيامي والسبب وراء نبضات قلبي بفرح لا محدود. كل لحظة أقضيها معك تصبح ذاكرة أحتفظ بها إلى الأبد.</p>
 
-            <p>Your radiant smile, your infectious laughter, your gentle presence—everything about you makes me believe in the power of true love. You are not just my beloved; you are my closest confidant, my greatest inspiration, and my most profound blessing.</p>
+            <p>ابتسامتك المشرقة، ضحكتك العذب، وجودك الرقيق - كل شيء فيك يجعلني أؤمن بقوة الحب الحقيقي. أنتِ ليست فقط حبي، بل أنتِ أفضل صديقة، أعظم إلهامي، وأكثر نعمة في حياتي.</p>
 
-            <p>I solemnly promise to stand steadfastly by your side, to support your dreams with all my strength, and to love you with every fiber of my being. You deserve all the beauty and joy in this world, and I shall dedicate my lifetime to creating those moments with you.</p>
+            <p>أعِدك أن أقف بجانبك دائماً، أدعم أحلامك بكل قوتي، وأحبك بكل جزء من قلبي. تستحقين العالم كله، وسأكرس حياتي كاملة لخلق أجمل اللحظات معك.</p>
 
-            <p>Thank you for being my reason to smile each day, for being my safe harbor in every storm, and for choosing to share your beautiful life with mine.</p>
+            <p>شكراً لأنك سبب ابتسامتي، ملجأي الآمن، واختيارك لتشاركي هذه الحياة الجميلة.</p>
 
-            <p>Forever and always yours,<br><strong style="font-size: 1.3rem;">Hussein</strong></p>
+            <p>إلى الأبد وأكثر،<br><strong style="font-size: 1.3rem;">حسين ❤️</strong></p>
         </div>
 
         <div class="hearts-decoration">❤️ 💕 ❤️</div>
 
         <div class="music-section">
-            <div class="music-label">🎵 Lana Del Rey 🎵</div>
+            <div class="music-label">🎵 لانا ديل ري 🎵</div>
             <audio controls>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
+                متصفحك لا يدعم تشغيل الصوت
             </audio>
-            <p style="color: #999; font-size: 0.9rem; margin-top: 12px; font-style: italic;">Our song plays just for us 🎶</p>
+            <p style="color: #999; font-size: 0.9rem; margin-top: 12px; font-style: italic;">أغنيتنا تعزف فقط لأجلنا 🎶</p>
         </div>
 
         <div class="footer-hearts">❤️ 💕 ❤️</div>
@@ -427,9 +493,9 @@
         }
 
         // Console message
-        console.log('%c❤️ This page was created with love by Hussein for Dina ❤️', 
+        console.log('%c❤️ هذه الصفحة تم إنشاؤها بحب من حسين إلى دينا ❤️', 
                     'color: #ff69b4; font-size: 16px; font-weight: bold;');
-        console.log('%cPassword: huseinanddina', 'color: #667eea; font-size: 14px;');
+        console.log('%cكلمة المرور: huseinanddina', 'color: #667eea; font-size: 14px;');
     </script>
 </body>
 </html>
