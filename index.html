@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دينا وحسين ❤️</title>
+    <title>دينا وحسين - قصة حب ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -12,48 +12,22 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
         body {
             font-family: 'Cairo', 'Amiri', serif;
             min-height: 100vh;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
             direction: rtl;
-        }
-
-        /* Animated Background with Memories */
-        .background {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .memory-card {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            animation: float 8s ease-in-out infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotateZ(0deg); }
-            50% { transform: translateY(-30px) rotateZ(5deg); }
         }
 
         /* Password Screen */
-        .password-screen {
+        .password-overlay {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -63,22 +37,142 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-            animation: fadeIn 0.5s ease-out;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
         }
 
-        .password-screen.hidden {
-            display: none;
+        .password-overlay.hidden {
+            display: none !important;
         }
 
-        .password-container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 60px 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        .password-box {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 80px 60px;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
             text-align: center;
-            max-width: 400px;
-            animation: slideUp 0.6s ease-out;
+            max-width: 450px;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lock-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .password-box h2 {
+            font-family: 'Cairo', serif;
+            color: #764ba2;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .password-box p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 18px;
+            border: 3px solid #667eea;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-family: 'Cairo', serif;
+            text-align: center;
+            letter-spacing: 3px;
+            transition: all 0.3s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 20px rgba(118, 75, 162, 0.5);
+            transform: scale(1.02);
+        }
+
+        .password-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Cairo', serif;
+        }
+
+        .password-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(118, 75, 162, 0.5);
+        }
+
+        .password-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            font-size: 1rem;
+            margin-top: 15px;
+            display: none;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .main-content.hidden {
+            display: none !important;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 25px;
+            padding: 70px 50px;
+            max-width: 900px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 192, 203, 0.6);
+            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes slideUp {
@@ -92,410 +186,369 @@
             }
         }
 
-        .password-container h2 {
-            font-family: 'Cairo', serif;
-            color: #764ba2;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-weight: 900;
+        .top-hearts {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            animation: heartBeat 1.2s infinite;
+            letter-spacing: 10px;
         }
 
-        .password-container p {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #667eea;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-family: 'Cairo', serif;
-            text-align: center;
-            letter-spacing: 2px;
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 15px rgba(118, 75, 162, 0.3);
-        }
-
-        .password-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-family: 'Cairo', serif;
-        }
-
-        .password-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.4);
-        }
-
-        .error-msg {
-            color: #e74c3c;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            display: none;
-        }
-
-        /* Main Content */
-        .container {
-            position: relative;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 60px;
-            max-width: 800px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 192, 203, 0.5);
-            animation: slideIn 0.8s ease-out;
-            margin: 50px auto;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hearts-top {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: pulse 1s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
+        @keyframes heartBeat {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
         }
 
         h1 {
             font-family: 'Cairo', serif;
             color: #764ba2;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 4rem;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
             font-weight: 900;
+            letter-spacing: 2px;
         }
 
-        .subtitle {
+        .title-subtitle {
             font-family: 'Cairo', serif;
             color: #667eea;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 30px;
             font-weight: 700;
         }
 
-        .date {
+        .date-stamp {
             color: #ff69b4;
-            font-size: 1.2rem;
-            margin-bottom: 35px;
+            font-size: 1.4rem;
+            margin-bottom: 45px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            font-size: 1.8rem;
+            margin: 35px 0;
+            letter-spacing: 20px;
+            color: #ff69b4;
         }
 
         /* Images Section */
-        .images-section {
+        .images-gallery {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
+            gap: 40px;
+            margin: 50px 0;
             flex-wrap: wrap;
         }
 
-        .image-card {
+        .image-box {
             position: relative;
-            width: 200px;
-            height: 250px;
-            border-radius: 15px;
+            width: 220px;
+            height: 300px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s;
+            border: 3px solid rgba(255, 192, 203, 0.5);
         }
 
-        .image-card:hover {
-            transform: scale(1.05);
+        .image-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(118, 75, 162, 0.4);
         }
 
-        .image-card img {
+        .image-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s;
         }
 
-        .image-label {
+        .image-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-title {
             position: absolute;
             bottom: 0;
             width: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
             color: white;
-            padding: 15px;
+            padding: 25px;
             text-align: center;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.3rem;
         }
 
-        .content {
+        /* Content Text */
+        .love-message {
             color: #333;
-            font-size: 1.2rem;
-            line-height: 2;
-            margin: 35px 0;
+            font-size: 1.3rem;
+            line-height: 2.2;
+            margin: 45px 0;
             text-align: justify;
             font-family: 'Cairo', 'Amiri', serif;
         }
 
-        .content p {
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+        .love-message p {
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
-        .hearts-decoration {
-            font-size: 1.8rem;
-            margin: 30px 0;
-            letter-spacing: 15px;
+        .signature {
+            font-size: 1.5rem;
+            margin-top: 35px;
+            font-weight: 700;
+            color: #764ba2;
         }
 
-        .music-section {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 3px solid rgba(118, 75, 162, 0.2);
+        /* Music Player */
+        .music-player {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 4px solid rgba(118, 75, 162, 0.2);
         }
 
-        .music-label {
+        .music-title {
             font-family: 'Cairo', serif;
             color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         audio {
             width: 100%;
+            margin-top: 20px;
+            border-radius: 15px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .music-note {
+            color: #999;
+            font-size: 1rem;
             margin-top: 15px;
-            border-radius: 10px;
-            height: 40px;
+            font-style: italic;
         }
 
-        .footer-hearts {
-            font-size: 2.5rem;
-            margin-top: 40px;
-            animation: float 3s ease-in-out infinite;
+        .bottom-hearts {
+            font-size: 3rem;
+            margin-top: 45px;
+            animation: float 4s ease-in-out infinite;
+            letter-spacing: 15px;
         }
 
-        /* Floating hearts background */
-        .bg-hearts {
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Floating Hearts Background */
+        .hearts-bg {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
             pointer-events: none;
-            z-index: 2;
+            z-index: 1;
         }
 
-        .heart-float {
+        .floating-heart {
             position: absolute;
-            color: rgba(255, 105, 180, 0.2);
-            font-size: 1.5rem;
-            animation: heartFloat 8s infinite;
+            color: rgba(255, 105, 180, 0.25);
+            font-size: 2rem;
+            animation: heartRise 12s infinite ease-in;
         }
 
-        @keyframes heartFloat {
+        @keyframes heartRise {
             0% {
                 transform: translateY(100vh) translateX(0) rotate(0deg);
                 opacity: 0;
             }
             10% {
-                opacity: 0.7;
+                opacity: 0.8;
             }
             90% {
-                opacity: 0.7;
+                opacity: 0.8;
             }
             100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                transform: translateY(-100vh) translateX(150px) rotate(360deg);
                 opacity: 0;
             }
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 30px;
+                padding: 40px 25px;
                 margin: 20px;
             }
 
             h1 {
+                font-size: 2.8rem;
+            }
+
+            .title-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .love-message {
+                font-size: 1.1rem;
+                line-height: 1.9;
+            }
+
+            .images-gallery {
+                gap: 20px;
+            }
+
+            .image-box {
+                width: 180px;
+                height: 250px;
+            }
+
+            .top-hearts {
                 font-size: 2.5rem;
-            }
-
-            .subtitle {
-                font-size: 1.3rem;
-            }
-
-            .content {
-                font-size: 1rem;
-            }
-
-            .memory-card {
-                width: 100px;
-                height: 100px;
-                font-size: 2rem;
-            }
-
-            .images-section {
-                gap: 15px;
-            }
-
-            .image-card {
-                width: 150px;
-                height: 200px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsContainer"></div>
+
     <!-- Password Screen -->
-    <div class="password-screen" id="passwordScreen">
-        <div class="password-container">
-            <h2>🔐 أدخل الرمز السري</h2>
-            <p>هذه الصفحة محمية بالحب 💕</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="أدخل كلمة المرور">
-            <button class="password-btn" onclick="checkPassword()">فتح</button>
-            <div class="error-msg" id="errorMsg">❌ كلمة المرور خاطئة، حاول مجدداً!</div>
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-box">
+            <div class="lock-icon">🔐</div>
+            <h2>الدخول إلى قلبي</h2>
+            <p>هذه الصفحة محمية بكلمة سر من الحب 💕</p>
+            <input 
+                type="password" 
+                id="passwordInput" 
+                class="password-input" 
+                placeholder="أدخل كلمة المرور"
+                autocomplete="off"
+            >
+            <button class="password-btn" onclick="unlockPage()">فتح ❤️</button>
+            <div class="error-msg" id="errorMessage">❌ كلمة المرور خاطئة، حاول مرة أخرى!</div>
         </div>
     </div>
 
     <!-- Main Content -->
-    <div class="background">
-        <!-- Memory Cards -->
-        <div class="memory-card" style="top: 10%; left: 5%; animation-delay: 0s;">✈️</div>
-        <div class="memory-card" style="top: 20%; right: 8%; animation-delay: 1s;">🎭</div>
-        <div class="memory-card" style="top: 50%; left: 10%; animation-delay: 2s;">🌙</div>
-        <div class="memory-card" style="top: 60%; right: 12%; animation-delay: 1.5s;">🎬</div>
-        <div class="memory-card" style="bottom: 15%; left: 15%; animation-delay: 2.5s;">🎪</div>
-        <div class="memory-card" style="bottom: 25%; right: 10%; animation-delay: 0.5s;">🌟</div>
-    </div>
+    <div class="main-content hidden" id="mainContent">
+        <div class="container">
+            <div class="top-hearts">❤️ 💕 ❤️</div>
 
-    <div class="bg-hearts" id="heartContainer"></div>
+            <h1>دينا وحسين</h1>
 
-    <div class="container">
-        <div class="hearts-top">❤️ 💕 ❤️</div>
+            <div class="title-subtitle">قصة حبنا الجميلة</div>
 
-        <h1>دينا وحسين</h1>
+            <div class="date-stamp">📅 15 يونيو 2026</div>
 
-        <div class="subtitle">قصة حبنا</div>
+            <div class="divider">❤️ 💕 ❤️</div>
 
-        <div class="date">📅 15 يونيو 2026</div>
-
-        <div class="hearts-decoration">❤️ 💕 ❤️</div>
-
-        <!-- Images Section -->
-        <div class="images-section">
-            <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1578591069636-4bbf1619e656?w=300&h=400&fit=crop" alt="باتمان">
-                <div class="image-label">🦇 باتمان</div>
+            <!-- Images Section -->
+            <div class="images-gallery">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1578591069636-4bbf1619e656?w=400&h=500&fit=crop" alt="باتمان">
+                    <div class="image-title">🦇 باتمان 🦇</div>
+                </div>
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a5?w=400&h=500&fit=crop" alt="كاتومان">
+                    <div class="image-title">🐱 كاتومان 🐱</div>
+                </div>
             </div>
-            <div class="image-card">
-                <img src="https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a5?w=300&h=400&fit=crop" alt="كاتومان">
-                <div class="image-label">🐱 كاتومان</div>
+
+            <div class="divider">❤️ 💕 ❤️</div>
+
+            <!-- Love Message -->
+            <div class="love-message">
+                <p>حبيبتي دينا الغالية،</p>
+
+                <p>كلمات اللغة جميعاً تجف على لساني عندما أحاول التعبير عما أشعر به تجاهك. أنتِ النور الذي يشع في أحلك لحظاتي، والسبب الوحيد وراء نبضات قلبي بفرح وشغف لا حدود له.</p>
+
+                <p>كل ثانية أقضيها برفقتك تتحول إلى ذاكرة ذهبية أحتفظ بها في أعماق روحي إلى الأبد. ابتسامتك الرقيقة، ضحكتك الذي يذيب قلبي، حنانك الذي لا يوصف - كل شيء فيك يعلمني معنى الحب الحقيقي.</p>
+
+                <p>أنتِ لستِ فقط حبي الأول والأخير، بل أنتِ أقرب صديقة لروحي، أعظم مصدر إلهام لي، وأثمن نعمة وهبها الله لحياتي. معك أنا أجد السلام والأمان والحب بلا حدود.</p>
+
+                <p>أعدك بأغلظ الأيمان أن أقف بجانبك في كل خطواتك، أدعم أحلامك بكل قوة روحي، وأحبك بكل نبضة في قلبي. تستحقين كل جمال هذا العالم، وسأكرس كل أيام عمري لخلق أجمل اللحظات معك.</p>
+
+                <p>شكراً لأنك سبب ابتسامتي كل صباح، ملجأي الآمن في كل عاصفة، وتضحين بخيارك الأغلى لتشاركي هذه الحياة.</p>
+
+                <p class="signature">إلى الأبد وأبعد،<br>❤️ حسين ❤️</p>
             </div>
+
+            <div class="divider">❤️ 💕 ❤️</div>
+
+            <!-- Music Player -->
+            <div class="music-player">
+                <div class="music-title">🎵 أغنيتنا 🎵</div>
+                <p style="color: #667eea; font-size: 1.1rem; margin-bottom: 10px;">Lana Del Rey</p>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    متصفحك لا يدعم تشغيل الملفات الصوتية
+                </audio>
+                <p class="music-note">أغنيتنا تعزف فقط لأجلنا، تحكي قصة حبنا الخالدة 🎶</p>
+            </div>
+
+            <div class="bottom-hearts">❤️ 💕 ❤️</div>
         </div>
-
-        <div class="hearts-decoration">❤️ 💕 ❤️</div>
-
-        <div class="content">
-            <p>حبيبتي دينا الغالية،</p>
-
-            <p>لا تستطيع الكلمات أن تعبر عما أشعر به عندما أفكر فيك. أنتِ النور الذي ينير أحلك أيامي والسبب وراء نبضات قلبي بفرح لا محدود. كل لحظة أقضيها معك تصبح ذاكرة أحتفظ بها إلى الأبد.</p>
-
-            <p>ابتسامتك المشرقة، ضحكتك العذب، وجودك الرقيق - كل شيء فيك يجعلني أؤمن بقوة الحب الحقيقي. أنتِ ليست فقط حبي، بل أنتِ أفضل صديقة، أعظم إلهامي، وأكثر نعمة في حياتي.</p>
-
-            <p>أعِدك أن أقف بجانبك دائماً، أدعم أحلامك بكل قوتي، وأحبك بكل جزء من قلبي. تستحقين العالم كله، وسأكرس حياتي كاملة لخلق أجمل اللحظات معك.</p>
-
-            <p>شكراً لأنك سبب ابتسامتي، ملجأي الآمن، واختيارك لتشاركي هذه الحياة الجميلة.</p>
-
-            <p>إلى الأبد وأكثر،<br><strong style="font-size: 1.3rem;">حسين ❤️</strong></p>
-        </div>
-
-        <div class="hearts-decoration">❤️ 💕 ❤️</div>
-
-        <div class="music-section">
-            <div class="music-label">🎵 لانا ديل ري 🎵</div>
-            <audio controls>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                متصفحك لا يدعم تشغيل الصوت
-            </audio>
-            <p style="color: #999; font-size: 0.9rem; margin-top: 12px; font-style: italic;">أغنيتنا تعزف فقط لأجلنا 🎶</p>
-        </div>
-
-        <div class="footer-hearts">❤️ 💕 ❤️</div>
     </div>
 
     <script>
-        // Password Protection
-        function checkPassword() {
+        // Password Check
+        function unlockPage() {
             const input = document.getElementById('passwordInput').value;
             const correctPassword = 'huseinanddina';
-            const errorMsg = document.getElementById('errorMsg');
-            
+            const errorMsg = document.getElementById('errorMessage');
+
             if (input === correctPassword) {
-                document.getElementById('passwordScreen').classList.add('hidden');
+                document.getElementById('passwordOverlay').classList.add('hidden');
+                document.getElementById('mainContent').classList.remove('hidden');
                 createFloatingHearts();
                 errorMsg.style.display = 'none';
             } else {
                 errorMsg.style.display = 'block';
                 document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
             }
         }
 
-        // Allow Enter key to submit
+        // Allow Enter key
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                checkPassword();
+                unlockPage();
             }
         });
 
-        // Create floating hearts in background
+        // Create Floating Hearts
         function createFloatingHearts() {
-            const container = document.getElementById('heartContainer');
-            container.innerHTML = ''; // Clear existing
+            const container = document.getElementById('heartsContainer');
             const hearts = ['❤️', '💕', '💖', '💗', '💝'];
 
-            for (let i = 0; i < 25; i++) {
+            for (let i = 0; i < 30; i++) {
                 const heart = document.createElement('div');
-                heart.className = 'heart-float';
+                heart.className = 'floating-heart';
                 heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
                 heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.animationDuration = (Math.random() * 3 + 8) + 's';
+                heart.style.animationDelay = Math.random() * 8 + 's';
+                heart.style.animationDuration = (Math.random() * 4 + 12) + 's';
                 container.appendChild(heart);
             }
         }
 
-        // Console message
-        console.log('%c❤️ هذه الصفحة تم إنشاؤها بحب من حسين إلى دينا ❤️', 
-                    'color: #ff69b4; font-size: 16px; font-weight: bold;');
-        console.log('%cكلمة المرور: huseinanddina', 'color: #667eea; font-size: 14px;');
+        // Focus on password input
+        window.addEventListener('load', function() {
+            document.getElementById('passwordInput').focus();
+        });
+
+        // Console
+        console.log('%c❤️ هذه الصفحة أنشئت بحب من حسين إلى دينا ❤️', 
+                    'color: #ff69b4; font-size: 18px; font-weight: bold;');
     </script>
 </body>
 </html>
